@@ -58,7 +58,7 @@ if [ -n "`id -u ffsearch 2>/dev/null`" ]; then
 		exit 1
 	fi
 else
-	/usr/sbin/useradd -M -o -r -u 118 -s /bin/sh \
+	/usr/sbin/useradd -M -o -r -u 118 -s /bin/false \
 		-g ffsearch -c "Fast File Search user" -d %{_phpdir} ffsearch 1>&2 || :
 fi
 
