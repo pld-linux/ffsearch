@@ -19,17 +19,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_phpdir		/home/services/httpd/html/ffsearch
 
 %description
-Fast File Search is a crawler for FTP servers and SMB shares that can be found
-on Windows or UNIX systems running Samba. It provides a web interface for
-searching files. It is optimized for searching files by a wildcard when there
-are some normal (not '*' or '?') chars specified in the beginning or in the end
-of the mask (for example '*.iso').
+Fast File Search is a crawler for FTP servers and SMB shares that can
+be found on Windows or UNIX systems running Samba. It provides a web
+interface for searching files. It is optimized for searching files by
+a wildcard when there are some normal (not '*' or '?') chars specified
+in the beginning or in the end of the mask (for example '*.iso').
 
 %description -l pl
 Fast File Search(szybka wyszukiwarka plików) jest skryptem zbieraj±cym
-informacje o udostêpnianych zasobach FTP i SMB. Udostêpnia przyjemny WEB-owy
-interfejs do wyszukiwania plików. Jest zoptymalizowana do wyszukiwania plików
-przez podanie masek plików(na przyk³ad *.iso).
+informacje o udostêpnianych zasobach FTP i SMB. Udostêpnia przyjemny
+WEB-owy interfejs do wyszukiwania plików. Jest zoptymalizowana do
+wyszukiwania plików przez podanie masek plików(na przyk³ad *.iso).
 
 %prep
 %setup -q
