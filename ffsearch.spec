@@ -74,7 +74,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc INSTALL README MAINTAINERS UPGRADE
+%doc INSTALL README MAINTAINERS UPGRADE AUTHORS ChangeLog doc/*
 %attr(750,root,ffsearch) %dir %{_libdir}/%{name}
 %attr(750,root,ffsearch) %dir %{_libdir}/%{name}/bin
 %attr(750,root,ffsearch) %{_libdir}/%{name}/bin/*.pl
