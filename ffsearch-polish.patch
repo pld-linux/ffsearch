@@ -1,0 +1,330 @@
+diff -urN ffsearch-1.1.2/htdocs/ffsearch/lang/polish.php ffsearch-1.1.2.polish/htdocs/ffsearch/lang/polish.php
+--- ffsearch-1.1.2/htdocs/ffsearch/lang/polish.php	1970-01-01 01:00:00.000000000 +0100
++++ ffsearch-1.1.2.polish/htdocs/ffsearch/lang/polish.php	2003-09-04 04:11:07.000000000 +0200
+@@ -0,0 +1,271 @@
++<?php
++if (!defined ('FAST_FILE_SEARCH'))
++{
++	header ("Location: index.php");
++	die ("");
++}
++
++# How is the translation done?
++# ---------------------------
++
++# The majority of texts are in a translation array:
++# $tr["english sentence"] = "translated sentence";
++
++# Some things remain in files - the helps and similar things.
++# Other files which need to be translated:
++# help_edit.php help_search.php
++
++
++# TRANSLATION
++
++$months = array ("Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Pa¼", "Lis", "Gru");
++
++# SELECT.PHP:
++if (defined ("FFS_SEARCH"))
++{
++	# the predefined file types in select.php (the main search page)
++	$tr["ISO images"] = "obrazy ISO";
++	$tr["music"] = "muzyka";
++	$tr["pictures"] = "zdjêcia";
++	$tr["software"] = "oprogramowanie";
++
++	# the predefined times in select.php
++	$tr["today"] = "dzisiaj";
++	$tr["yesterday"] = "wczoraj";
++	$tr["2 days ago"] = "2 dni temu";
++	$tr["3 days ago"] = "3 dni temu";
++	$tr["week ago"] = "tydzieñ temu";
++	$tr["2 weeks ago"] = "2 tygodnie temu";
++	$tr["month ago"] = "miesi±c temu";
++
++	$tr["Searching is case insensitive."] = "Wyszukiwanie uwzglêdnia wielko¶æ liter.";
++	$tr["Files (wildcard (?,*))"] = "Pliki (maski (?,*))";
++	$tr["Files (substring)"] = "Pliki (podci±gi)";
++	$tr["Files (regular expression)"] = "Pliki (Wyra¿enia regularne)";
++	$tr["Directories (substring)"] = "Katalogi (podci±gi)";
++	$tr["Directories (wildcard (?,*))"] = "Katalogi (maski (?,*))";
++	$tr["Directories (regular expression)"] = "Katalogi (wyra¿enia regularne)";
++	$tr["Search!"] = "Szukaj";
++	$tr["Fill in the parameters for"] = "Wype³nij parametry dla";
++	$tr["Save settings (cookies required)"] = "Zachowaj ustawienia (potrzebne ciasteczka)";
++	$tr["Show only online hosts"] = "Poka¿ tylko komputery dostêpne w sieci";
++	$tr["Print sizes in human readable format"] = "Drukuj rozmiary w ludzkim formacie";
++	$tr["Search on"] = "Szukaj na";
++	$tr["hosts"] = "serwerach";		# SMB and FTP hosts
++	$tr["file size"] = "rozmiar pliku";
++	$tr["Only files added since"] = "Tylko pliki dodane w ci±gu";
++	$tr["Hits per page"] = "Trafieñ na stronê";
++	$tr["Your history"] = "Twoja historia";
++	$tr["Statistics"] = "Statystyki";
++	$tr["Last change"] = "Ostatnia zmiana";
++	$tr["SMBs"] = "SMBs";
++	$tr["FTPs"] = "FTPs";
++	$tr["Directories"] = "Katalogi";
++	$tr["Files"] = "Pliki";
++	$tr["Total size"] = "£±czny rozmiar";
++	$tr["Queries"] = "Zapytania";
++	$tr["and"] = "i";
++	$tr["others"] = "inne";
++	$tr["uses some code from"] = "wykorzystuje troszkê kodu z";
++	$tr["is distributed under the"] = "jest rozpowszechniany na licencji";
++
++
++	# SEARCH.PHP:
++	$tr["Results for"] = "Rezultaty dla";
++	$tr["More"] = "Wiêcej";
++	$tr["New search"] = "Nowe wyszukiwanie";
++	$tr["No hits"] = "Brak trafieñ";
++	$tr["Hit"] = "Trafienie";
++	$tr["Hits"] = "Trafienia";
++}
++
++
++# FTP_LIST.PHP, FTP_HOST.PHP, FTP_DEL.PHP,
++# SMB_LIST.PHP, SMB_HOST.PHP, SMB_DEL.PHP:
++
++# actions
++$tr["Add"] = "Dodaj";
++$tr["Update"] = "Uaktualnij";
++$tr["Edit"] = "Edytuj";
++$tr["Delete"] = "Usuñ";
++$tr["Purge"] = "Czy¶æ";
++$tr["Cancel"] = "Anuluj";
++
++if (defined ("FFS_HOST_LIST"))
++{
++	# menu items
++	$tr["Add FTP server"] = "Dodaj serwer FTP";
++	$tr["Edit FTP server"] = "Edytuj serwer FTP";
++	$tr["Delete FTP server"] = "Usuñ serwer FTP";
++	$tr["Purge FTP server"] = "Czy¶æ serwer FTP";
++	$tr["Add SMB server"] = "Dodaj serwer SMB";
++	$tr["Edit SMB server"] = "Edytuj serwer SMB";
++	$tr["Delete SMB server"] = "Usuñ serwer SMB";
++	$tr["Purge SMB server"] = "Czy¶æ serwer SMB";
++
++	# results and errors
++	$tr["Host name must be specified"] = "Musi byæ podana nazwa serwera";
++	$tr["Workgroup must be specified"] = "Musi byæ podana nazwa grupy";
++	$tr["is not valid IP address"] = "nie jest poprawnym adresem IP";
++	$tr["is not valid DNS name or IP address"] = "nie jest poprawn± nazw± DNS ani adresem IP";
++	$tr["Login must be specified"] = "Musi byæ podany login";
++	$tr["Port is not valid"] = "Port nie jest poprawny";
++	$tr["is not valid file name with absolute path"] = "nie jest poprawn± nazw± pliku z bezwzglêdn± ¶cie¿k± dostêpu";
++	$tr["was added to list"] = "zosta³ dodany do listy";
++	$tr["is already in the list"] = "jest ju¿ na li¶cie";
++	$tr["was deleted"] = "zosta³ usuniêty";
++	$tr["will be deleted during next crawl"] = "bêdzie usuniêty podczas nastêpnego przeszukiwania";
++	$tr["will be purged during next crawl"] = "bêdzie wyczyszczony podczas nastêpnego przeszukiwania";
++	# %s will be substituted by the hostname:
++	$tr["__host_add_error__"] = "Wyst±pi³ b³±d podczas dodawania %s do listy";
++	$tr["__host_updated__"] = "Informacje o %s zosta³y uaktualnione";
++
++	# data fields
++	$tr["Host"] = "Komputer";
++	$tr["Host (DNS name or IP)"] = "Komputer (nazwa DNS lub IP)";
++	$tr["Login"] = "Login";
++	$tr["Password"] = "Has³o";
++	$tr["Port"] = "Port";
++	$tr["Starting directory"] = "Katalog pocz±tkowy";
++	$tr["List of files"] = "Lista plików";
++	$tr["Use passive mode"] = "U¿yj trybu passive";
++	$tr["Use recursive ls (ls -lR) for getting file list"] = "U¿yj trybu rekursywnego ls (ls -lR) do uzyskania listy plików";
++	$tr["(server must support it)"] = "(serwer musi to obs³ugiwaæ)";
++	$tr["Comment"] = "Komentarze";
++	$tr["Editable by"] = "Edytowalny przez";
++	$tr["IP address"] = "Adres IP";
++	$tr["Workgroup"] = "Grupa robocza";
++	$tr["Shares"] = "Zasoby";
++	$tr["Name"] = "Nazwa";
++	$tr["File size"] = "Rozmiar pliku";
++	$tr["Period"] = "Czêstotliwo¶æ";
++	$tr["Counter"] = "Licznik";
++	$tr["Scan order"] = "Kolejno¶æ skanowania";
++	$tr["Expire count"] = "Expire count";
++	$tr["Flags"] = "Flagi";
++	$tr["Action"] = "Akcja";
++	$tr["delete"] = "usuñ";
++	$tr["purge"] = "kasuj";
++}
++
++
++# COMMENTS.PHP, COMMENT_DEL.PHP:
++if (defined ("FFS_COMMENTS"))
++{
++	$tr["You are welcome to write here any comments, ideas, ..."] = "Zapraszamy do pisania tutaj Twoich komentarzy, pomys³ów, ...";
++	$tr["Your name or nickname"] = "Twoje imiê lub pseudonim";
++	$tr["Your e-mail"] = "Twój e-mail";
++	$tr["optional"] = "nieobowi±zkowy";
++	$tr["Comment text"] = "Tekst komentarza";
++	$tr["Submit"] = "Wy¶lij";
++	$tr["Delete comment"] = "Usuñ komentarz";
++	$tr["Do you really want to delete this comment?"] = "Na pewno chcesz usun±æ ten komentarz?";
++}
++
++
++# ADMIN.PHP:
++if (defined ('FFS_ADMIN'))
++{
++	$tr["Change password"] = "Zmieñ has³o";
++	$tr["Logout"] = "Wyloguj";
++	$tr["Password was changed"] = "Has³o zosta³o zmienione";
++	$tr["Password cannot be empty"] = "Has³o nie mo¿e byæ puste";
++	$tr["Passwords do not match"] = "Has³a siê nie zgadzaj±";
++	$tr["New password"] = "Nowe has³o";
++	$tr["Reenter password"] = "Powtórz nowe has³o";
++	$tr["Login name"] = "Twój login";
++	$tr["Password"] = "Has³o";
++	$tr["Login"] = "Login";
++	$tr["There are no admins."] = "Nie ma adminów.";
++	$tr["Admin name"] = "Nazwa admina";
++	$tr["E-mail"] = "E-mail";
++	$tr["Rights"] = "Prawa";
++	$tr["Edit FTP list"] = "Edytyj listê FTP";
++	$tr["Edit SMB list"] = "Edytuj listê SMB";
++	$tr["Purge FTP server from list"] = "Kasuj serwery FTP z listy";	# purge == completely delete
++	$tr["Purge SMB server from list"] = "Czy¶æ serwery SMB z listy";
++	$tr["Delete comments"] = "Kasuj komentarze";
++}
++
++
++# MENU.PHP:
++$tr["Search"] = "Szukaj";
++$tr["FTP server list"] = "Lista serwerów FTP";
++$tr["SMB server list"] = "Lista serwerów SMB";
++$tr["Comments"] = "Komentarze";
++$tr["Admin"] = "Admin";
++
++
++# HELP_EDIT.PHP, HELP_SEARCH.PHP
++$tr["Help"] = "Pomoc";
++
++
++# CONFIG.PHP, DB.PHP:
++$tr["Error"] = "B³±d";
++$tr["Can't read configuration file"] = "Nie mogê czytaæ pliku z konfiguracj±";
++$tr["DB_NAME must be defined in configuration file"] = "DB_NAME musi byæ zdefiniowana w pliku konfiguracyjnym";
++$tr["DB_LOGIN must be defined in configuration file"] = "DB_LOGIN musi byæ zdefiniowany w pliku konfiguracyjnym";
++$tr["DB_PASSWORD must be defined in configuration file"] = "DB_PASSWORD musi byæ zdefiniowane w pliku konfiguracyjnym";
++$tr["Can't connect to database"] = "Nie mogê siê pod³±czyæ do bazy";
++$tr["Can't connect to master database"] = "Nie mogê siê pod³±czyæ do nadrzêdnej bazy";
++
++
++# Some things are inpossible to translate by the translation array
++# (for example there are different suffixes for different count of servers
++# in some languages), these things are translated by a function.
++
++function print_n_hits_in_s_seconds ($n, $s)
++{
++	echo "$n ";
++	if ($n == 1)
++		echo "trafienie";
++	else
++		echo "trafienia";
++	echo " w ", sprintf ("%0.2f", $s), " sekund";
++}
++
++function page_generated ($host, $time)
++{
++	echo "Ta strona zosta³a wygenerowana przez zapytanie z ",
++		$host, strftime (" dnia %d.%m.%Y o %H:%M:%S", $time);
++}
++
++function confirm_delete ($host, $purge = 0)
++{
++	echo "Na pewno chcesz ", ($purge ? "wyczy¶ciæ" : "usun±æ"), " $host?";
++}
++
++function permition_host_add ($type)		# $type = FTP or $type = SMB
++{
++	return "Zalogowa³e¶ siê jako admin z prawami by dodaæ serwer $type";
++}
++
++function permition_host_edit ($HID)
++{
++	return "Nie ma serwera z HID = $HID na li¶cie lub<br />musisz siê zalogowaæ jako admin by móc edytowaæ ten serwer";
++}
++
++function permition_host_delete ($HID, $type, $purge = 0)	# $type = FTP or $type = SMB
++{
++	return "Nie ma serwera z HID = $HID na li¶cie lub<br />musisz siê zalogowaæ jako admin by mieæ prawa do " . ($purge ? "wyczyszenia" : "edycji lub wyczyszczenia") . " serwera $type";
++}
++
++function permition_comment_delete ($CID)
++{
++	return "Nie ma komentarza z CID = $CID lub<br />musisz siê zalogowaæ jako admin by mieæ prawa do usuniêcia tego komentarza";
++}
++
++function slow_queries_disabled ()
++{
++	global $c, $lang, $aid, $fast_query_minsize, $fast_query_maxsize;
++
++	echo '<h1>Wolne zapytania zosta³y wy³±czone</h1>';
++	echo "Szukaj przez maski lub podaj jakie¶ normalne znaki(nie '*' ani '?') na pocz±tku lub koñcu maski pliku(np *.iso)";
++	if ($fast_query_minsize >= 0)
++		echo '<br />lub podaj minimaln± wielko¶æ pliku jako"', $c["FAST_QUERY_MINSIZE"], '"';
++	if ($fast_query_maxsize >= 0)
++		echo '<br />lub podaj maksymaln± wielko¶æ pliku jako "', $c["FAST_QUERY_MAXSIZE"], '"';
++	echo '.<br /><br /><a href="select.php?lang=', $lang, $aid, '">Powróæ z powrotem do parametrów wyszukiwañ</a>';
++}
++
++?>
+diff -urN ffsearch-1.1.2/htdocs/ffsearch/lang.php ffsearch-1.1.2.polish/htdocs/ffsearch/lang.php
+--- ffsearch-1.1.2/htdocs/ffsearch/lang.php	2003-07-28 17:16:39.000000000 +0200
++++ ffsearch-1.1.2.polish/htdocs/ffsearch/lang.php	2003-09-04 04:13:08.000000000 +0200
+@@ -23,8 +23,8 @@
+ 	"cz" => "cs",	# Czech
+ 	"sk" => "cs",	# Slovak
+ 	"lt" => "lt",	# Lithuanian
+-	# the following translations have not been written yet
+ 	"pl" => "pl",	# Polish
++	# the following translations have not been written yet
+ 	"it" => "it",	# Italian
+ 	"uk" => "uk",	# Ukrainian
+ 	"ua" => "uk",	# Ukrainian
+@@ -44,6 +44,7 @@
+ 	"uk" => 1,
+ 	"cs" => 1,
+ 	"lt" => 1,
++	"pl" => 1,
+ 	);
+ 
+ $lang_file = array (
+@@ -57,6 +58,7 @@
+ 	"hu" => "lang/hungarian.php",
+ 	"lt" => "lang/lithuanian.php",
+ 	"nl" => "lang/dutch.php",
++	"pl" => "lang/polish.php",
+ 	"ro" => "lang/romanian.php",
+ 	"ru" => "lang/russian.php",
+ 	"uk" => "lang/ukrainian.php",
+@@ -73,6 +75,7 @@
+ 	"hu" => "iso-8859-2",
+ 	"lt" => "windows-1257",
+ 	"nl" => "iso-8859-1",
++	"pl" => "iso-8859-2",
+ 	"ro" => "utf-8",
+ 	"ru" => "windows-1251",
+ 	"uk" => "koi8-u",
+diff -urN ffsearch-1.1.2/htdocs/ffsearch/top.php ffsearch-1.1.2.polish/htdocs/ffsearch/top.php
+--- ffsearch-1.1.2/htdocs/ffsearch/top.php	2003-07-28 17:16:39.000000000 +0200
++++ ffsearch-1.1.2.polish/htdocs/ffsearch/top.php	2003-09-04 04:13:52.000000000 +0200
+@@ -14,13 +14,13 @@
+ 	"hu" => array ("src" => "flag/hu.gif", "width" => 30, "height" => 20, "alt" => "Hungarian"),
+ 	"lt" => array ("src" => "flag/lt.gif", "width" => 30, "height" => 20, "alt" => "Lithuanian"),
+ 	"nl" => array ("src" => "flag/nl.gif", "width" => 30, "height" => 20, "alt" => "Dutch"),
++	"pl" => array ("src" => "flag/pl.gif", "width" => 30, "height" => 20, "alt" => "Polish"),
+ 	"ro" => array ("src" => "flag/ro.gif", "width" => 30, "height" => 20, "alt" => "Romanian"),
+ 	"ru" => array ("src" => "flag/ru.gif", "width" => 30, "height" => 20, "alt" => "Russian"),
+ 	"uk" => array ("src" => "flag/uk.gif", "width" => 30, "height" => 20, "alt" => "Ukrainian"),
+ 	"zh" => array ("src" => "flag/zh.gif", "width" => 30, "height" => 20, "alt" => "Chinese"),
+ 	# the following translations have not been written yet
+ 	"it" => array ("src" => "flag/it.gif", "width" => 30, "height" => 20, "alt" => "Italian"),
+-	"pl" => array ("src" => "flag/pl.gif", "width" => 30, "height" => 20, "alt" => "Polish"),
+ 	);
+ 
+ echo '<?xml version="1.0" encoding="', $encoding, '" ?>', "\n";
