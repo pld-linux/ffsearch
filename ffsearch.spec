@@ -32,7 +32,7 @@ todo
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_libdir}/%{name}/bin}
+install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_libdir}/%{name}/bin,/var/{log/{,archiv/}%{name},lock/%{name}}}
 
 cp -r htdocs/ffsearch/*		$RPM_BUILD_ROOT%{_phpdir}
 install bin/*			$RPM_BUILD_ROOT%{_libdir}/%{name}/bin
@@ -82,6 +82,9 @@ fi
 %attr(640,root,http) %{_phpdir}/*.css
 %attr(640,root,http) %{_phpdir}/*.gif
 %attr(640,root,http) %{_phpdir}/*.png
-%attr(640,root,http) %{_phpdir}/flag
-%attr(640,root,http) %{_phpdir}/lang
+%attr(750,root,http) %{_phpdir}/flag
+%attr(750,root,http) %{_phpdir}/lang
 %attr(640,root,root) /etc/cron.d/%{name}
+%attr(750,ffsearch,ffsearch) %dir /var/lock/%{name}
+%attr(750,ffsearch,ffsearch) %dir /var/log/%{name}
+%attr(750,ffsearch,ffsearch) %dir /var/log/archiv/%{name}
