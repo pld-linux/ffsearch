@@ -2,14 +2,13 @@
 Summary:	Fast File Search
 Summary(pl):	Szybka wyszukiwarka plików
 Name:		ffsearch
-Version:	1.1.2
+Version:	1.1.4
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
-# Source0-md5:	27296436414f8daf8453b4deee142a29
+# Source0-md5:	6cfda703f93ad4bad65e66d407a9ff3f
 Source1:	%{name}.crond
-Patch0:		%{name}-polish.patch
 URL:		http://ffsearch.sf.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires(pre):	/usr/bin/getgid
@@ -41,7 +40,6 @@ pocz±tku lub koñcu nazwy (na przyk³ad *.iso).
 
 %prep
 %setup -q
-%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -94,6 +92,7 @@ fi
 %attr(750,root,http) %dir %{_phpdir}
 %attr(640,root,http) %{_phpdir}/a*.php
 %attr(640,root,http) %{_phpdir}/body.php
+%attr(640,root,http) %{_phpdir}/browse.php
 %attr(640,root,http) %{_phpdir}/colors.php
 %attr(640,root,http) %{_phpdir}/comment*.php
 %attr(640,root,http) %{_phpdir}/db.php
