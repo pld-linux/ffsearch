@@ -12,8 +12,9 @@ Source1:	%{name}.crond
 Patch0:		%{name}-config.patch
 URL:		http://ffsearch.sf.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires(pre):	/usr/bin/getgid
+BuildRequires:	rpmbuild(macros) >= 1.159
 Requires(pre):	/bin/id
+Requires(pre):	/usr/bin/getgid
 Requires(pre):	/usr/sbin/groupadd
 Requires(pre):	/usr/sbin/useradd
 Requires(postun):	/usr/sbin/groupdel
@@ -21,6 +22,8 @@ Requires(postun):	/usr/sbin/userdel
 Requires:	php >= 4.0.3
 Requires:	webserver
 Requires:	perl-DBD-mysql
+Provides:	group(ffsearch)
+Provides:	user(ffsearch)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,28 +63,28 @@ install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-if [ -n "`getgid ffsearch`" ]; then
-	if [ "`getgid ffsearch`" != "118" ]; then
+if [ -n "`/usr/bin/getgid ffsearch`" ]; then
+	if [ "`/usr/bin/getgid ffsearch`" != 118 ]; then
 		echo "Error: group ffsearch doesn't have gid=118. Correct this before installing ffsearch." 1>&2
 		exit 1
 	fi
 else
-	/usr/sbin/groupadd -g 118 -r -f ffsearch 1>&2
+	/usr/sbin/groupadd -g 118 ffsearch 1>&2
 fi
-if [ -n "`id -u ffsearch 2>/dev/null`" ]; then
-	if [ "`id -u ffsearch`" != "118" ]; then
+if [ -n "`/bin/id -u ffsearch 2>/dev/null`" ]; then
+	if [ "`/bin/id -u ffsearch`" != 118 ]; then
 		echo "Error: user ffsearch doesn't have uid=118. Correct this before installing ffsearch." 1>&2
 		exit 1
 	fi
 else
-	/usr/sbin/useradd -M -o -r -u 118 -s /bin/false \
-		-g ffsearch -c "Fast File Search user" -d %{_datadir}/%{name} ffsearch 1>&2
+	/usr/sbin/useradd -u 118 -s /bin/false -g ffsearch \
+		-c "Fast File Search user" -d %{_datadir}/ffsearch ffsearch 1>&2
 fi
 
 %postun
 if [ "$1" = "0" ]; then
-	/usr/sbin/userdel ffsearch
-	/usr/sbin/groupdel ffsearch
+	%userremove ffsearch
+	%groupremove ffsearch
 fi
 
 %files
