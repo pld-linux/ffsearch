@@ -1,0 +1,9 @@
+# FFsearch configuration
+# complete scan every day at 8
+0 8 * * * ffsearch /usr/lib/ffsearch/bin/ffsearch.pl --complete
+
+# additional scan per 4 hours
+0 4,12,16,18,22 * * * ffsearch /usr/lib/ffsearch/bin/ffsearch.pl --incremental
+
+# check hosts online every 10 minuts
+*/10 * * * * ffsearch /usr/lib/ffsearch/bin/online_check.pl
