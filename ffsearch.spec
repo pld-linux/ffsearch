@@ -89,9 +89,22 @@ fi
 %attr(750,root,ffsearch) %dir %{_libdir}/%{name}/bin
 %attr(750,root,ffsearch) %{_libdir}/%{name}/bin/*.pl
 %attr(750,root,ffsearch) %{_libdir}/%{name}/*.pl
-%attr(640,ffsearch,ffsearch) %config(noreplace) %{_sysconfdir}/%{name}.conf
+%attr(640,ffsearch,ffsearch) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}.conf
+%attr(640,ffsearch,ffsearch) %verify(not md5 size mtime) %config(noreplace) %{_phpdir}/config.php
 %attr(750,root,http) %dir %{_phpdir}
-%attr(640,root,http) %{_phpdir}/*.php
+%attr(640,root,http) %{_phpdir}/a*.php
+%attr(640,root,http) %{_phpdir}/body.php
+%attr(640,root,http) %{_phpdir}/colors.php
+%attr(640,root,http) %{_phpdir}/comment*.php
+%attr(640,root,http) %{_phpdir}/db.php
+%attr(640,root,http) %{_phpdir}/f*.php
+%attr(640,root,http) %{_phpdir}/h*.php
+%attr(640,root,http) %{_phpdir}/index.php
+%attr(640,root,http) %{_phpdir}/lang.php
+%attr(640,root,http) %{_phpdir}/menu*.php
+%attr(640,root,http) %{_phpdir}/s*.php
+%attr(640,root,http) %{_phpdir}/t*.php
+%attr(640,root,http) %{_phpdir}/vars.php
 %attr(640,root,http) %{_phpdir}/*.css
 %attr(640,root,http) %{_phpdir}/*.gif
 %attr(640,root,http) %{_phpdir}/*.png
