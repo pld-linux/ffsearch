@@ -9,6 +9,7 @@ Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
 # Source0-md5:	b634646e8b8fc13d316a7656d24e392d
 Source1:	%{name}.crond
+Patch0:		%{name}-config.patch
 URL:		http://ffsearch.sf.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires(pre):	/usr/bin/getgid
@@ -41,6 +42,7 @@ pocz±tku lub koñcu nazwy (na przyk³ad *.iso).
 
 %prep
 %setup -q
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT

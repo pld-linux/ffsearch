@@ -1,0 +1,16 @@
+diff -Nur old/ffsearch.conf new/ffsearch.conf
+--- old/ffsearch.conf	2004-02-02 07:56:24.000000000 +0000
++++ new/ffsearch.conf	2004-02-18 15:06:43.000000000 +0000
+@@ -7,10 +7,10 @@
+ 
+ # The name (including path) of the log file.
+ # If you do not want logs, put /dev/null in here
+-log_file		/home/ffsearch/ffsearch.log
++log_file		/var/log/ffsearch/ffsearch.log
+ 
+ # The name (including path) of the lock file.
+-lock_file		/home/ffsearch/ffsearch.lock
++lock_file		/var/lock/ffsearch/ffsearch.lock
+ 
+ # Debuglevel:
+ #	1 troubleshooting
