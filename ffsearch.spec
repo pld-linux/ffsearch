@@ -2,12 +2,12 @@
 Summary:	Fast File Search
 Summary(pl):	Szybka wyszukiwarka plików
 Name:		ffsearch
-Version:	1.1.10
+Version:	1.1.11
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
-# Source0-md5:	615c93c06250b3cacd2335308c33e93f
+# Source0-md5:	8e7da919971aed48f09cd5169e7f1286
 Source1:	%{name}.crond
 Patch0:		%{name}-config.patch
 URL:		http://ffsearch.sf.net/
