@@ -3,7 +3,7 @@ Summary:	Fast File Search
 Summary(pl):	Szybka wyszukiwarka plików
 Name:		ffsearch
 Version:	1.1.11
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
@@ -46,12 +46,12 @@ pocz±tku lub koñcu nazwy (na przyk³ad *.iso).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_libdir}/%{name}/bin,/var/{log/{,archiv/}%{name},lock/%{name}}}
+install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_datadir}/%{name}/bin,/var/{log/{,archiv/}%{name},lock/%{name}}}
 rm -rf {bin,flag,lang,htdocs/ffsearch/{,flag,lang},doc}/CVS
 
 cp -r htdocs/ffsearch/*		$RPM_BUILD_ROOT%{_phpdir}
-install bin/*			$RPM_BUILD_ROOT%{_libdir}/%{name}/bin
-install makedb.pl		$RPM_BUILD_ROOT%{_libdir}/%{name}
+install bin/*			$RPM_BUILD_ROOT%{_datadir}/%{name}/bin
+install makedb.pl		$RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{name}.conf		$RPM_BUILD_ROOT%{_sysconfdir}
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
@@ -75,7 +75,7 @@ if [ -n "`id -u ffsearch 2>/dev/null`" ]; then
 	fi
 else
 	/usr/sbin/useradd -M -o -r -u 118 -s /bin/false \
-		-g ffsearch -c "Fast File Search user" -d %{_libdir}/%{name} ffsearch 1>&2
+		-g ffsearch -c "Fast File Search user" -d %{_datadir}/%{name} ffsearch 1>&2
 fi
 
 %postun
@@ -87,10 +87,10 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc INSTALL README MAINTAINERS UPGRADE AUTHORS ChangeLog doc/*
-%attr(750,root,ffsearch) %dir %{_libdir}/%{name}
-%attr(750,root,ffsearch) %dir %{_libdir}/%{name}/bin
-%attr(750,root,ffsearch) %{_libdir}/%{name}/bin/*.pl
-%attr(750,root,ffsearch) %{_libdir}/%{name}/*.pl
+%attr(750,root,ffsearch) %dir %{_datadir}/%{name}
+%attr(750,root,ffsearch) %dir %{_datadir}/%{name}/bin
+%attr(750,root,ffsearch) %{_datadir}/%{name}/bin/*.pl
+%attr(750,root,ffsearch) %{_datadir}/%{name}/*.pl
 %attr(640,ffsearch,ffsearch) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}.conf
 %attr(640,ffsearch,http) %verify(not md5 size mtime) %config(noreplace) %{_phpdir}/config.php
 %attr(750,root,http) %dir %{_phpdir}
