@@ -35,7 +35,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_libdir}/%{name}/bin}
 
 cp -r htdocs/ffsearch/*		$RPM_BUILD_ROOT%{_phpdir}
-install bin/* makedb.pl		$RPM_BUILD_ROOT%{_libdir}/%{name}/bin
+install bin/*			$RPM_BUILD_ROOT%{_libdir}/%{name}/bin
+install makedb.pl		$RPM_BUILD_ROOT%{_libdir}/%{name}
 install %{name}.conf		$RPM_BUILD_ROOT%{_sysconfdir}
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
@@ -74,6 +75,7 @@ fi
 %attr(750,root,ffsearch) %dir %{_libdir}/%{name}
 %attr(750,root,ffsearch) %dir %{_libdir}/%{name}/bin
 %attr(750,root,ffsearch) %{_libdir}/%{name}/bin/*.pl
+%attr(750,root,ffsearch) %{_libdir}/%{name}/*.pl
 %attr(640,ffsearch,ffsearch) %config(noreplace) %{_sysconfdir}/%{name}.conf
 %attr(750,root,http) %dir %{_phpdir}
 %attr(640,root,http) %{_phpdir}/*.php
