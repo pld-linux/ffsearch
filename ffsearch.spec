@@ -8,6 +8,7 @@ License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
 # Source0-md5:	27296436414f8daf8453b4deee142a29
+Source1:	%{name}.crond
 URL:		http://www.phpbb.com/
 Requires:	php >= 4.0.3
 Requires:	webserver
@@ -36,6 +37,8 @@ install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_libdir}/%{name}/bin}
 cp -r htdocs/ffsearch/*		$RPM_BUILD_ROOT%{_phpdir}
 install bin/* makedb.pl		$RPM_BUILD_ROOT%{_libdir}/%{name}/bin
 install %{name}.conf		$RPM_BUILD_ROOT%{_sysconfdir}
+
+install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,3 +82,4 @@ fi
 %attr(640,root,http) %{_phpdir}/*.png
 %attr(640,root,http) %{_phpdir}/flag
 %attr(640,root,http) %{_phpdir}/lang
+%attr(640,root,root) /etc/cron.d/%{name}
