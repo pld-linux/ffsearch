@@ -9,7 +9,7 @@ Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
 # Source0-md5:	27296436414f8daf8453b4deee142a29
 Source1:	%{name}.crond
-URL:		http://www.phpbb.com/
+URL:		http://ffsearch.sf.net/
 Requires:	php >= 4.0.3
 Requires:	webserver
 BuildArch:	noarch
@@ -25,7 +25,10 @@ are some normal (not '*' or '?') chars specified in the beginning or in the end
 of the mask (for example '*.iso').
 
 %description -l pl
-todo
+Fast File Search(szybka wyszukiwarka plików) jest skryptem zbieraj±cym
+informacje o udostêpnianych zasobach FTP i SMB. Udostêpnia przyjemny WEB-owy
+interfejs do wyszukiwania plików. Jest zoptymalizowana do wyszukiwania plików
+przez podanie masek plików(na przyk³ad *.iso).
 
 %prep
 %setup -q
