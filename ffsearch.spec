@@ -11,6 +11,13 @@ Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
 Source1:	%{name}.crond
 Patch0:		%{name}-polish.patch
 URL:		http://ffsearch.sf.net/
+BuildRequires:	rpm-perlprov >= 4.1-13
+Requires(pre):	/usr/bin/getgid
+Requires(pre):	/bin/id
+Requires(pre):	/usr/sbin/groupadd
+Requires(pre):	/usr/sbin/useradd
+Requires(postun):	/usr/sbin/groupdel
+Requires(postun):	/usr/sbin/userdel
 Requires:	php >= 4.0.3
 Requires:	webserver
 BuildArch:	noarch
@@ -26,10 +33,11 @@ a wildcard when there are some normal (not '*' or '?') chars specified
 in the beginning or in the end of the mask (for example '*.iso').
 
 %description -l pl
-Fast File Search(szybka wyszukiwarka plików) jest skryptem zbieraj±cym
-informacje o udostêpnianych zasobach FTP i SMB. Udostêpnia przyjemny
-WEB-owy interfejs do wyszukiwania plików. Jest zoptymalizowana do
-wyszukiwania plików przez podanie masek plików(na przyk³ad *.iso).
+Fast File Search (szybka wyszukiwarka plików) jest skryptem
+zbieraj±cym informacje o udostêpnianych zasobach FTP i SMB. Udostêpnia
+przyjemny interfejs WWW do wyszukiwania plików. Jest zoptymalizowana
+do wyszukiwania plików przez podanie masek plików ze sta³± czê¶ci± na
+pocz±tku lub koñcu nazwy (na przyk³ad *.iso).
 
 %prep
 %setup -q
@@ -56,7 +64,7 @@ if [ -n "`getgid ffsearch`" ]; then
 		exit 1
 	fi
 else
-	/usr/sbin/groupadd -g 118 -r -f ffsearch 1>&2 || :
+	/usr/sbin/groupadd -g 118 -r -f ffsearch 1>&2
 fi
 if [ -n "`id -u ffsearch 2>/dev/null`" ]; then
 	if [ "`id -u ffsearch`" != "118" ]; then
@@ -65,7 +73,7 @@ if [ -n "`id -u ffsearch 2>/dev/null`" ]; then
 	fi
 else
 	/usr/sbin/useradd -M -o -r -u 118 -s /bin/false \
-		-g ffsearch -c "Fast File Search user" -d %{_libdir}/%{name} ffsearch 1>&2 || :
+		-g ffsearch -c "Fast File Search user" -d %{_libdir}/%{name} ffsearch 1>&2
 fi
 
 %postun
