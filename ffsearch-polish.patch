@@ -30,7 +30,7 @@ diff -urN ffsearch-1.1.2/htdocs/ffsearch/lang/polish.php ffsearch-1.1.2.polish/h
 +	# the predefined file types in select.php (the main search page)
 +	$tr["ISO images"] = "obrazy ISO";
 +	$tr["music"] = "muzyka";
-+	$tr["pictures"] = "zdjêcia";
++	$tr["pictures"] = "obrazki";
 +	$tr["software"] = "oprogramowanie";
 +
 +	# the predefined times in select.php
@@ -42,16 +42,16 @@ diff -urN ffsearch-1.1.2/htdocs/ffsearch/lang/polish.php ffsearch-1.1.2.polish/h
 +	$tr["2 weeks ago"] = "2 tygodnie temu";
 +	$tr["month ago"] = "miesi±c temu";
 +
-+	$tr["Searching is case insensitive."] = "Wyszukiwanie uwzglêdnia wielko¶æ liter.";
++	$tr["Searching is case insensitive."] = "Wyszukiwanie jest niewra¿liwe na wielko¶æ znaków.";
 +	$tr["Files (wildcard (?,*))"] = "Pliki (maski (?,*))";
 +	$tr["Files (substring)"] = "Pliki (podci±gi)";
 +	$tr["Files (regular expression)"] = "Pliki (Wyra¿enia regularne)";
 +	$tr["Directories (substring)"] = "Katalogi (podci±gi)";
 +	$tr["Directories (wildcard (?,*))"] = "Katalogi (maski (?,*))";
 +	$tr["Directories (regular expression)"] = "Katalogi (wyra¿enia regularne)";
-+	$tr["Search!"] = "Szukaj";
++	$tr["Search!"] = "Szukaj!";
 +	$tr["Fill in the parameters for"] = "Wype³nij parametry dla";
-+	$tr["Save settings (cookies required)"] = "Zachowaj ustawienia (potrzebne ciasteczka)";
++	$tr["Save settings (cookies required)"] = "Zachowaj ustawienia (wymaga ciasteczek)";
 +	$tr["Show only online hosts"] = "Poka¿ tylko komputery dostêpne w sieci";
 +	$tr["Print sizes in human readable format"] = "Drukuj rozmiary w ludzkim formacie";
 +	$tr["Search on"] = "Szukaj na";
