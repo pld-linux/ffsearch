@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %pre
 if [ -n "`getgid ffsearch`" ]; then
-	if [ "`getgid ffsearch`" != "91" ]; then
+	if [ "`getgid ffsearch`" != "118" ]; then
 		echo "Error: group ffsearch doesn't have gid=118. Correct this before installing ffsearch." 1>&2
 		exit 1
 	fi
