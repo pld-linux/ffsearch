@@ -79,8 +79,8 @@ fi
 %attr(750,root,ffsearch) %dir %{_datadir}/%{name}/bin
 %attr(750,root,ffsearch) %{_datadir}/%{name}/bin/*.pl
 %attr(750,root,ffsearch) %{_datadir}/%{name}/*.pl
-%attr(640,ffsearch,ffsearch) %verify(not md5 size mtime) %config(noreplace) %{_sysconfdir}/%{name}.conf
-%attr(640,ffsearch,http) %verify(not md5 size mtime) %config(noreplace) %{_phpdir}/config.php
+%attr(640,ffsearch,ffsearch) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}.conf
+%attr(640,ffsearch,http) %verify(not md5 mtime size) %config(noreplace) %{_phpdir}/config.php
 %attr(750,root,http) %dir %{_phpdir}
 %attr(640,root,http) %{_phpdir}/a*.php
 %attr(640,root,http) %{_phpdir}/body.php
