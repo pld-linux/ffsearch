@@ -2,12 +2,12 @@
 Summary:	Fast File Search
 Summary(pl):	Szybka wyszukiwarka plików
 Name:		ffsearch
-Version:	1.1.11
-Release:	3
+Version:	1.1.12
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
-# Source0-md5:	8e7da919971aed48f09cd5169e7f1286
+# Source0-md5:	37fd70f94431c70198f5fa2031b4f9ac
 Source1:	%{name}.crond
 Patch0:		%{name}-config.patch
 URL:		http://ffsearch.sf.net/
@@ -27,7 +27,7 @@ Provides:	user(ffsearch)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_phpdir		/home/services/httpd/html/ffsearch
+%define		_phpdir		%{_datadir}/%{name}/www
 
 %description
 Fast File Search is a crawler for FTP servers and SMB shares that can
@@ -49,13 +49,16 @@ pocz±tku lub koñcu nazwy (na przyk³ad *.iso).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir},%{_datadir}/%{name}/bin,/var/{log/{,archiv/}%{name},lock/%{name}}}
+install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir}/%{name},%{_datadir}/%{name}/bin,/var/{log/{,archiv/}%{name},lock/%{name}}}
 rm -rf {bin,flag,lang,htdocs/ffsearch/{,flag,lang},doc}/CVS
 
 cp -r htdocs/ffsearch/*		$RPM_BUILD_ROOT%{_phpdir}
 install bin/*			$RPM_BUILD_ROOT%{_datadir}/%{name}/bin
 install makedb.pl		$RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{name}.conf		$RPM_BUILD_ROOT%{_sysconfdir}
+
+mv $RPM_BUILD_ROOT%{_phpdir}/config.php $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+ln -sf %{_sysconfdir}/%{name}/config.php $RPM_BUILD_ROOT%{_phpdir}/config.php
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
 
@@ -80,7 +83,8 @@ fi
 %attr(750,root,ffsearch) %{_datadir}/%{name}/bin/*.pl
 %attr(750,root,ffsearch) %{_datadir}/%{name}/*.pl
 %attr(640,ffsearch,ffsearch) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}.conf
-%attr(640,ffsearch,http) %verify(not md5 mtime size) %config(noreplace) %{_phpdir}/config.php
+%attr(640,ffsearch,http) %verify(not md5 mtime size) %config(noreplace) %{_sysconfdir}/%{name}/config.php
+%{_phpdir}/config.php
 %attr(750,root,http) %dir %{_phpdir}
 %attr(640,root,http) %{_phpdir}/a*.php
 %attr(640,root,http) %{_phpdir}/body.php
