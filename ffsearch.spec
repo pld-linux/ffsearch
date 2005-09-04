@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
 # Source0-md5:	37fd70f94431c70198f5fa2031b4f9ac
 Source1:	%{name}.crond
 Patch0:		%{name}-config.patch
-URL:		http://ffsearch.sf.net/
+URL:		http://ffsearch.sourceforge.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.202
 Requires(pre):	/bin/id
