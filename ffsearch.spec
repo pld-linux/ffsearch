@@ -3,7 +3,7 @@ Summary:	Fast File Search
 Summary(pl):	Szybka wyszukiwarka plików
 Name:		ffsearch
 Version:	1.1.12
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
@@ -13,15 +13,15 @@ Patch0:		%{name}-config.patch
 URL:		http://ffsearch.sourceforge.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.202
+Requires(postun):	/usr/sbin/groupdel
+Requires(postun):	/usr/sbin/userdel
 Requires(pre):	/bin/id
 Requires(pre):	/usr/bin/getgid
 Requires(pre):	/usr/sbin/groupadd
 Requires(pre):	/usr/sbin/useradd
-Requires(postun):	/usr/sbin/groupdel
-Requires(postun):	/usr/sbin/userdel
+Requires:	perl-DBD-mysql
 Requires:	php >= 4.0.3
 Requires:	webserver
-Requires:	perl-DBD-mysql
 Provides:	group(ffsearch)
 Provides:	user(ffsearch)
 BuildArch:	noarch
