@@ -3,7 +3,7 @@ Summary:	Fast File Search
 Summary(pl):	Szybka wyszukiwarka plików
 Name:		ffsearch
 Version:	1.1.12
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
@@ -20,8 +20,8 @@ Requires(pre):	/usr/bin/getgid
 Requires(pre):	/usr/sbin/groupadd
 Requires(pre):	/usr/sbin/useradd
 Requires:	perl-DBD-mysql
-Requires:	php >= 4.0.3
 Requires:	webserver
+Requires:	webserver(php) >= 4.0.3
 Provides:	group(ffsearch)
 Provides:	user(ffsearch)
 BuildArch:	noarch
