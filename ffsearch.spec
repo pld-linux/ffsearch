@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Fast File Search
-Summary(pl):	Szybka wyszukiwarka plików
+Summary(pl.UTF-8):   Szybka wyszukiwarka plikÃ³w
 Name:		ffsearch
 Version:	1.1.12
 Release:	4
@@ -36,12 +36,12 @@ interface for searching files. It is optimized for searching files by
 a wildcard when there are some normal (not '*' or '?') chars specified
 in the beginning or in the end of the mask (for example '*.iso').
 
-%description -l pl
-Fast File Search (szybka wyszukiwarka plików) jest skryptem
-zbieraj±cym informacje o udostêpnianych zasobach FTP i SMB. Udostêpnia
-przyjemny interfejs WWW do wyszukiwania plików. Jest zoptymalizowana
-do wyszukiwania plików przez podanie masek plików ze sta³± czê¶ci± na
-pocz±tku lub koñcu nazwy (na przyk³ad *.iso).
+%description -l pl.UTF-8
+Fast File Search (szybka wyszukiwarka plikÃ³w) jest skryptem
+zbierajÄ…cym informacje o udostÄ™pnianych zasobach FTP i SMB. UdostÄ™pnia
+przyjemny interfejs WWW do wyszukiwania plikÃ³w. Jest zoptymalizowana
+do wyszukiwania plikÃ³w przez podanie masek plikÃ³w ze staÅ‚Ä… czÄ™Å›ciÄ… na
+poczÄ…tku lub koÅ„cu nazwy (na przykÅ‚ad *.iso).
 
 %prep
 %setup -q
