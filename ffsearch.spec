@@ -108,4 +108,4 @@ fi
 %attr(640,root,root) /etc/cron.d/%{name}
 %attr(750,ffsearch,ffsearch) %dir /var/lock/%{name}
 %attr(750,ffsearch,ffsearch) %dir /var/log/%{name}
-%attr(750,ffsearch,ffsearch) %dir /var/log/archiv/%{name}
+%attr(750,ffsearch,ffsearch) %dir /var/log/archive/%{name}
