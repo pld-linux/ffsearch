@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Fast File Search
 Summary(pl.UTF-8):	Szybka wyszukiwarka plików
 Name:		ffsearch
