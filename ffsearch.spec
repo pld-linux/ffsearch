@@ -1,15 +1,15 @@
 Summary:	Fast File Search
 Summary(pl.UTF-8):	Szybka wyszukiwarka plików
 Name:		ffsearch
-Version:	1.1.12
-Release:	4
+Version:	1.1.13
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://dl.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
-# Source0-md5:	37fd70f94431c70198f5fa2031b4f9ac
+Source0:	https://downloads.sourceforge.net/ffsearch/%{name}-%{version}.tar.bz2
+# Source0-md5:	e1ebf95060e7cf6e8ec66d170a9f6491
 Source1:	%{name}.crond
 Patch0:		%{name}-config.patch
-URL:		http://ffsearch.sourceforge.net/
+URL:		https://ffsearch.sourceforge.net/
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.202
 Requires(postun):	/usr/sbin/groupdel
@@ -48,18 +48,17 @@ początku lub końcu nazwy (na przykład *.iso).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir}/%{name},%{_datadir}/%{name}/bin,/var/{log/{,archiv/}%{name},lock/%{name}}}
-rm -rf {bin,flag,lang,htdocs/ffsearch/{,flag,lang},doc}/CVS
+install -d $RPM_BUILD_ROOT{%{_phpdir},%{_sysconfdir}/%{name},%{_datadir}/%{name}/bin,/var/{log/{,archive/}%{name},lock/%{name}}}
 
-cp -r htdocs/ffsearch/*		$RPM_BUILD_ROOT%{_phpdir}
+cp -pr htdocs/ffsearch/*	$RPM_BUILD_ROOT%{_phpdir}
 install bin/*			$RPM_BUILD_ROOT%{_datadir}/%{name}/bin
 install makedb.pl		$RPM_BUILD_ROOT%{_datadir}/%{name}
-install %{name}.conf		$RPM_BUILD_ROOT%{_sysconfdir}
+cp -p %{name}.conf		$RPM_BUILD_ROOT%{_sysconfdir}
 
-mv $RPM_BUILD_ROOT%{_phpdir}/config.php $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+%{__mv} $RPM_BUILD_ROOT%{_phpdir}/config.php $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 ln -sf %{_sysconfdir}/%{name}/config.php $RPM_BUILD_ROOT%{_phpdir}/config.php
 
-install -D %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
+install -Dp %{SOURCE1} $RPM_BUILD_ROOT/etc/cron.d/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,7 +75,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc INSTALL README MAINTAINERS UPGRADE AUTHORS ChangeLog doc/*
+%doc AUTHORS ChangeLog INSTALL MAINTAINERS README UPGRADE doc/*.txt
 %attr(750,root,ffsearch) %dir %{_datadir}/%{name}
 %attr(750,root,ffsearch) %dir %{_datadir}/%{name}/bin
 %attr(750,root,ffsearch) %{_datadir}/%{name}/bin/*.pl
